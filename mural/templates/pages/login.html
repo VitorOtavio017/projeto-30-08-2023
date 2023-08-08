@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="{% static 'mural/css/style2.css'%} ">
+    <script src="https://kit.fontawesome.com/3f2ba3881e.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="caixa">
+            <section class="head-form">
+                <h1>Entrar</h1>
+            </section>
+            <section class="form-section">
+                <form>
+                    <label for="username">
+                        <input type="text" name="username" placeholder="Nome" required><br>
+                        <i class="fas fa-user"></i>
+                    </label>
+                    <label for="password">
+                        <input type="password" name="password" placeholder="Senha" required><br>
+                        <i class="fas fa-lock"></i>
+                    </label>
+                    <input type="submit" value="Entrar" class="submitBtn">
+                </form>
+                <p>Não Tem Conta? <a href="http://127.0.0.1:8000/register/">Cadastro Aqui</a></p>
+            </section>
+
+            <section class="social-media">
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://google.com"><i class="fab fa-google-plus-g"></i></a>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>

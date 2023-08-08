@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'mural/css/style.css'%}">
+    <script src="https://kit.fontawesome.com/3f2ba3881e.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="caixa">
+            <section class="head-form">
+                <h1>Cadastro</h1>
+            </section>
+            <section class="form-section">
+                <form>
+                    <label for="username">
+                        <input type="text" name="username" placeholder="Nome" required><br>
+                        <i class="fas fa-user"></i>
+                    </label>
+                    <label for="email">
+                        <input type="email" name="email" placeholder="Email" required><br>
+                        <i class="far fa-envelope"></i>
+                    </label>
+                    <label for="password">
+                        <input type="password" name="password" placeholder="Senha" required><br>
+                        <i class="fas fa-lock"></i>
+                    </label>
+                    <label for="password">
+                        <input type="password" name="password" placeholder="Confirmar Senha" required><br>
+                        <i class="fas fa-lock"></i>
+                    </label>
+
+                    <input type="submit" value="Cadastro" class="submitBtn">
+                </form>
+                <p>Tem Uma Conta? <a href="http://127.0.0.1:8000/login/">Entre Aqui</a></p>
+
+            </section>
+
+            <section class="social-media">
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://google.com"><i class="fab fa-google-plus-g"></i></a>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>

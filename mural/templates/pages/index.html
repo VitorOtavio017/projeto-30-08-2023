@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Projeto Técnico em Informática</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{% static 'mural/css/main.css'%}" />
+	<link rel="stylesheet" href="{% static 'mural/css/noscript.css'%}">
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="{% url 'projeto-index' %}">Bem-Vindo</a></li>
+					<li><a href="{% url 'projeto-login' %}">Entrar</a></li>
+					<li><a href="{% url 'projeto-register' %}">Cadastro</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<div class="fundoimagem">
+			<section id="intro" class="wrapper style1 fullscreen fade-up fundoimagem">
+				<div class="inner">
+					<h1>Projeto Integrador</h1>
+					<p>Este site foi desenvolvido pelo T.I </p>
+					<ul class="actions">
+						<li><a href="http://127.0.0.1:8000/menu/" class="button scrolly">Saiba Mais</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'mural/js/jquery.min.js'%}"></script>
+	<script src="{% static 'mural/js/jquery.scrollex.min.js'%}"></script>
+	<script src="{% static 'mural/js/jquery.scrolly.min.js'%}"></script>
+	<script src="{% static 'mural/js/browser.min.js'%}"></script>
+	<script src="{% static 'mural/js/breakpoints.min.js'%}"></script>
+	<script src="{% static 'mural/js/util.js'%}"></script>
+	<script src="{% static 'mural/js/main.js'%}"></script>
+
+</body>
+
+</html>

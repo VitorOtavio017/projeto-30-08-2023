@@ -13,32 +13,32 @@
 
 <body>
     <div class="container">
+        {% include 'partials/messages.html'%}
         <div class="caixa">
             <section class="head-form">
                 <h1>Cadastro</h1>
             </section>
             <section class="form-section">
-                <form>
-                    <label for="username">
-                        <input type="text" name="username" placeholder="Nome" required><br>
-                        <i class="fas fa-user"></i>
-                    </label>
-                    <label for="email">
-                        <input type="email" name="email" placeholder="Email" required><br>
-                        <i class="far fa-envelope"></i>
-                    </label>
-                    <label for="password">
-                        <input type="password" name="password" placeholder="Senha" required><br>
-                        <i class="fas fa-lock"></i>
-                    </label>
-                    <label for="password">
-                        <input type="password" name="password" placeholder="Confirmar Senha" required><br>
-                        <i class="fas fa-lock"></i>
-                    </label>
+                <form action="{% url 'authors-create' %}" method="POST">
+                    <div class="color-text">
+                        {% csrf_token %}
 
-                    <input type="submit" value="Cadastro" class="submitBtn">
+                        {% for field in form %}
+                        <div class="form-list">
+                            <label for="{{field.id_for_label}}">{{field.label}}</label>
+                            {{field}}
+                            {% if field.help_text %}
+                            {% comment %} <p class="help-text">
+                                {{field.help_text}}
+                            </p> {% endcomment %}
+                            {% endif %}
+                            {{field.errors}}
+                        </div>
+                        {% endfor %}
+                        <input type="submit" value="Cadastro" class="submitBtn">
+                    </div>
                 </form>
-                <p>Tem Uma Conta? <a href="http://127.0.0.1:8000/login/">Entre Aqui</a></p>
+                <p>Tem Uma Conta? <a href="{% url 'authors-login' %}">Entre Aqui</a></p>
 
             </section>
 

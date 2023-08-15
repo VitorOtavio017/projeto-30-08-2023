@@ -25,7 +25,7 @@
 				<ul>
 					<li><a href="{% url 'projeto-index' %}">Bem-Vindo</a></li>
 					<li><a href="{% url 'projeto-login' %}">Entrar</a></li>
-					<li><a href="{% url 'projeto-register' %}">Cadastro</a></li>
+					<li><a href="{% url 'authors-register' %}">Cadastro</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -41,7 +41,7 @@
 					<h1>Projeto Integrador</h1>
 					<p>Este site foi desenvolvido pelo T.I </p>
 					<ul class="actions">
-						<li><a href="http://127.0.0.1:8000/menu/" class="button scrolly">Saiba Mais</a></li>
+						<li><a href="{% url 'projeto-index' %}" class="button scrolly">Saiba Mais</a></li>
 					</ul>
 				</div>
 			</section>

@@ -24,5 +24,5 @@ class Mural(models.Model):
  created_at = models.DateTimeField(auto_now_add=True)
  urgencia = models.IntegerField()
  categoria = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
- usario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+ usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 

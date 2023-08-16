@@ -1,17 +1,37 @@
+import re
+
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 
+def strong_password(password):
+    regex = re.compile(r'^(?=.*[a-z])(?=.*[A-Z]).{8,}$')
 
+    if not regex.match(password):
+        raise ValidationError((
+            'A senha deve ter pelo menos uma letra maiúscula, '
+            'uma letra minúscula e um número. O comprimento deve ser '
+            'pelo menos 8 caracteres.'
+        ),
+             code='invalid'
+        )
     
  
 class RegisterForm(forms.ModelForm):
+    
+    password = forms.CharField(
+        required= True,
+        widget=forms.PasswordInput(attrs= {
+            'placeholder': 'Digite sua senha'
+        }),
+        validators=[strong_password]
+    )
 
     confirmPassword = forms.CharField(
         required=True,
         widget=forms.PasswordInput(attrs= {
-                'placeholder': "Repita sua senha"
+            'placeholder': "Repita sua senha"
         }),
         error_messages= {
             'required': "Não pode ser vazia"

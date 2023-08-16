@@ -19,6 +19,7 @@ body {
     
     border-radius: 6px;
 }
+
 .head-form {
     display: flex;
     flex-direction: column;
@@ -186,6 +187,20 @@ label {
     background: var(--color-debug-light);
     color: var(--color-debug-dark);
   }
+
+  @media (max-width: 375px){
+    form input {
+         width: 205px;
+         height: 30px;
+    }
+ }
+ 
+ @media (max-width: 375px){
+   .container{
+        width: 280px;
+        height: 520px;
+   }
+ }
 
   @media (max-width: 600px) {
     .main-content-list {

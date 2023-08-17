@@ -26,11 +26,11 @@
                    </p>
                    <br>
                    Por favor,
-                   <form class="inline-form" action="{% url ' authors-logout ' %}" method='POST'>
+                   <form class="inline-form" action="{% url 'authors-logout' %}" method='POST'>
                         {% csrf_token %}
-                        <input type="hidden" name="username" valvue+"{{ request.user.username }}">
-                        <button class="plaintext-btton" type="submit">Clique aqui</button>
-                    para deslogar </form>  
+                        <input type="hidden" name="username" value="{{ request.user.username }}">
+                        <button class="plaintext-btton" type="submit">Clique aqui para deslogar </button>
+                   </form>  
                 {% endif %}
                 
             </section>

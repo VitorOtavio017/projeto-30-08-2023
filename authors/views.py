@@ -7,6 +7,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from .forms import LoginForm, RegisterForm
 from authors.forms import RegisterForm
+from mural.models import Mural
 
 # Create your views here.
 
@@ -107,6 +108,13 @@ def logout_view(request):
     logout(request)
 
     return redirect(reverse('authors-login'))
+
+@login_required(login_url='authors-login', redirect_field_name='next')
+def projetos(request):
+    cards = Mural.objects.filter(is_published=False, usuario=request.user)
+    return render(request, 'pages/mycards.html', context={
+        'cards': cards,
+    })
 
 
 

@@ -2245,8 +2245,8 @@ input, select, textarea {
 		#header .button {
 			display: inline-block;
 			border-radius: 100%;
-			width: 4.5em;
-			height: 4.5em;
+			width: 8rem;
+			height: 8rem;
 			line-height: 4.5em;
 			text-align: center;
 			font-size: 1.25em;
@@ -2433,8 +2433,9 @@ input, select, textarea {
 	#banner {
 		background: #000000;
 		text-align: center;
-		padding: 4.5em 0 4.5em 0;
+		padding: 4em 0 4em 0;
 		margin-bottom: 0;
+		font-size: 15px;
 	}
 
 		#banner header > p {
@@ -3192,3 +3193,8 @@ input, select, textarea {
 		padding: 1em 1em 1em 1em;	
 	}
 
+	#text{
+		color: white;
+		list-style: none;
+		margin: 0 auto;
+	}

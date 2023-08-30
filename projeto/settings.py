@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'projeto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        "HOST": '',
+        'PORT': '',
     }
 }
 
@@ -149,5 +153,5 @@ MESSAGES_TAGS = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-13c15.up.railway.app'
+    'http://projeto1-production.up.railway.app'
 ]

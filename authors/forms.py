@@ -1,8 +1,10 @@
 import re
+from collections import defaultdict
 
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from mural.models import Mural
 
 
 def strong_password(password):
@@ -80,4 +82,57 @@ class LoginForm(forms.Form):
        }
        )
     }
+
+class AuthorPostForm(forms.ModelForm):
+
+    def __init__(self,  *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["categoria"].widget.attrs.update({"class": "span-2"})
+        self.fields["oferece_ajuda"].widget.attrs.update({"class": "span-2"})
+
+        self._my_errors = defaultdict(list)
+
+    class Meta:
+        model = Mural
+        fields = 'title', 'description', 'contact', 'categoria', 'oferece_ajuda'
+    def clean(self, *args, **kwargs):
+        super_clean = super().clean(*args, **kwargs)
+        cd = self.cleaned_data
+
+        title = cd.get('title')
+        description = cd.get('description')
+
+
+        if title == description:
+            self._my_errors['title'].append('Não pode ser igual à descrição')
+            self._my_errors['description'].append('Não pode ser igual ao título')
+        
+        if self._my_errors:
+            raise ValidationError(self._my_errors)
+        
+        return super_clean
     
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+
+        if len(title) < 5:
+             self._my_errors['title'].append('Deve ter pelo menos 5 caracteres.')
+
+        return title
+    def clean_contact(self):
+        field_name = 'contact'
+        field_value = self.cleaned_data.get(field_name)
+
+        if is_positive_number(field_value) < 0:
+             self._my_errors[field_name].append('o número deve ser positivo')
+
+        return field_value
+    
+def is_positive_number(value):
+    try:
+        number_string = float(value)
+    except ValueError:
+        return False
+    return number_string > 0
+
+        

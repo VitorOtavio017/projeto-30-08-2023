@@ -33,3 +33,6 @@ def menu(request):
 def sobre(request):
     return render(request, 'pages/sobre.html', context={
     })
+def create_card(request):
+    return render(request, 'pages/create_card.html', context={
+    })

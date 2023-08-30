@@ -1,5 +1,5 @@
 from django.urls import path
-from mural.views import index, login, register, menu, sobre, mycards
+from mural.views import index, login, register, menu, sobre, mycards, create_card
 
 urlpatterns = [
     path('', index, name="projeto-index"),
@@ -7,5 +7,6 @@ urlpatterns = [
     path('menu/', menu, name="projeto-menu"),
     path('sobre/', sobre, name="projeto-sobre"),
     path('mycards/', mycards, name="projeto-mycards"),
-    # path('cards/<int:id>/', cards, name="projeto-cards")
+    path('create-cards/', create_card, name="create-cards"),
+
 ]

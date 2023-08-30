@@ -1,0 +1,10 @@
+
+{% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <div class="message {{ message.tags}}">
+            {{message_card}}
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}

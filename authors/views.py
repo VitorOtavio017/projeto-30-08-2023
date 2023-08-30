@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 from django.http import Http404
 from django.shortcuts import redirect, render 
 from django.urls import reverse
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, AuthorPostForm
 from authors.forms import RegisterForm
 from mural.models import Mural
 
@@ -22,14 +22,7 @@ def register_register(request):
     return render(request, 'pages/register.html', context={
         'form': form,
     })
-# def register_login(request):
-#    if not request.POST:
-#       raise Http404()
-   
-#    form = RegisterForm(request.POST)
-#    return render(request, 'pages/register.html', context={
-#                  'form': form,
-#    })
+
 def register_create(request):
    if not request.POST:
       raise Http404()
@@ -115,6 +108,90 @@ def projetos(request):
     return render(request, 'pages/mycards.html', context={
         'cards': cards,
     })
+
+
+
+@login_required(login_url='authors-login', redirect_field_name='next')
+def projetos_card_edit(request, id):
+    card = Mural.objects.filter(
+        is_published=False,
+        usuario=request.user,
+        pk=id,
+    ).first()
+    
+    if not card:
+        raise Http404()
+    
+    form = AuthorPostForm(
+        request.POST or None,
+        instance=card
+    )
+    
+    if form.is_valid():
+        card = form.save(commit=False)
+
+        card.usuario = request.user
+        card.is_published = False
+        
+        card.save()
+
+        messages.success(request, 'Sua postagem foi salva com sucesso!')
+
+        return redirect(reverse('authors-projetos-card-edit', args= (id,)))
+
+
+    return render(request, 'pages/create_card.html', context={
+        'cards':card,
+        'form' :form,
+        
+    })
+@login_required(login_url='authors-login', redirect_field_name='next')
+def projetos_card_new(request):
+    form = AuthorPostForm(
+        data=request.POST or None,
+    )
+    
+    if form.is_valid():
+        card: Mural = form.save(commit=False)
+
+        card.usuario = request.user
+        # card.oferece_ajuda = False
+        
+        card.save()
+
+        messages.success(request, 'Salvo com sucesso!')
+
+        return redirect(reverse('authors-projetos-card-edit', args= (card.id,)))
+    
+    return render(request, 'pages/create_card.html', context={
+        'form' :form,
+        'form_action': reverse('authors-projetos-card-new')
+        
+    })
+
+
+@login_required(login_url='authors-login', redirect_field_name='next')
+def projetos_card_delete(request):
+
+    if not request.POST:
+        raise Http404()
+    
+    POST = request.POST
+    id = POST.get('get')
+
+    card = Mural.objects.filter(
+        # oferece_ajuda=False,
+        usuario=request.user,
+        pk=id
+    ).filter()
+
+    if not card:
+        raise Http404()
+    card.delete()
+    messages.success(request, 'Postagem deletada com successo.')
+    return redirect(reverse('authors-projetos'))
+
+
 
 
 

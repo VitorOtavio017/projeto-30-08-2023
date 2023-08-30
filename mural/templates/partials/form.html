@@ -1,0 +1,25 @@
+<form class="main-form" action="{{ form_action}}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for field in form %}
+            <div class="form-group" {{field.field.widget.attrs.class}}>
+                  <label for="{{field.id_for_label}}">{{field.label}}</label>
+                 {{field}}
+               {% if field.help_text %}
+                <p>
+                   {{field.help_text}}
+                </p>
+            {% endif %}
+
+                {{field.errors}}
+
+            </div>
+    {% endfor %}
+
+    <div class='form-container'>
+        <div class='form-group'>
+            <button type="submit">Enviar</button>
+        </div>
+        
+    </div>
+</form>

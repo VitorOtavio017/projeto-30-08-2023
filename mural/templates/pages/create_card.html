@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Criar Card</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<noscript>
+		<link rel="stylesheet" href="{% static 'mural/css/noscripts.css'%}" />
+	</noscript>
+	<link rel="stylesheet" href="{% static 'mural/css/mains.css'%}" />
+</head>
+
+<body class="right-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="{% url 'authors-projetos' %}">Voltar</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<!-- Main -->
+		<div class="wrapper style1">
+
+			<div class="container">
+				<div class="col-8 col-12-mobile" id="content">
+					<article id="main">
+						{% include 'partials/messages_card.html'%}
+						{% include 'partials/form.html' %}
+						
+					</article>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'mural/js/jsMenus/jquery.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/jquery.dropotron.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/jquery.scrolly.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/jquery.scrollex.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/browser.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/breakpoints.min.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/util.js'%}"></script>
+	<script src="{% static 'mural/js/jsMenus/main.js'%}"></script>
+
+</body>
+
+</html>

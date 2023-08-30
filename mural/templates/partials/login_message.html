@@ -1,0 +1,17 @@
+{% if request.user.is_authenticated %}
+    <p> 
+        Você já está logado como
+    </p>
+    <p id="text">
+        {{request.user.username}}
+    </p>
+    <br>
+    <a href="{% url 'authors-projetos' %}">Veja suas postagens</a>
+     Ou
+    Por favor,
+    <form class="inline-form" action="{% url 'authors-logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="username" value="{{ request.user.username }}">   
+        <button class="plaintext-btton" type="submit">Clique aqui para deslogar </button>
+    </form>
+{% endif %}

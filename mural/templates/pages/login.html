@@ -17,21 +17,7 @@
         <div class="caixa">
             <section class="head-form">
                 <h1>Entrar</h1>
-                {% if request.user.is_authenticated %}
-                   <p>
-                    Você já está logado como
-                   </p>
-                   <p id="text">
-                   {{request.user.username}}
-                   </p>
-                   <br>
-                   Por favor,
-                   <form class="inline-form" action="{% url 'authors-logout' %}" method='POST'>
-                        {% csrf_token %}
-                        <input type="hidden" name="username" value="{{ request.user.username }}">
-                        <button class="plaintext-btton" type="submit">Clique aqui para deslogar </button>
-                   </form>  
-                {% endif %}
+                {% include 'partials/login_message.html'%}
                 
             </section>
             <section class="form-section">

@@ -69,10 +69,8 @@ input::-moz-focus-inner {
 }
 
 input, select, textarea {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
+	border: 2px solid #000;
+	color: #000;
 }
 
 /* Basic */
@@ -110,6 +108,7 @@ input, select, textarea {
 		line-height: 1.85em;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 300;
+		color: #000;
 	}
 	 #banner  h2{
            color: #fff;
@@ -1978,11 +1977,12 @@ input, select, textarea {
 		width: 100%;
 		border-radius: 0.5em;
 		border: solid 1px #E5E5E5;
-		padding: 1em;
+		
 		-moz-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 		-webkit-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 		-ms-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 		transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+		color: #000;
 	}
 
 		form input[type="text"]:focus,
@@ -1992,12 +1992,14 @@ input, select, textarea {
 		form textarea:focus {
 			background: #fff;
 			border-color: #ff6b16;
+			color: #000;
 		}
 
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
 	form select {
+		color: #000;
 		line-height: 1em;
 	}
 
@@ -2186,7 +2188,7 @@ input, select, textarea {
 	.wrapper {
 		background: #fff;
 		margin: 1em 1em 1em 1em;
-		padding: 8em 3em 50em 3em;
+		padding: 3em 3em 3em 3em;
 	}
 
 		.wrapper.style2 {
@@ -2203,9 +2205,8 @@ input, select, textarea {
 		background-attachment: fixed;
 		color: #fff;
 		text-align: center;
-		padding: 7.5em 0 2em 0;
+		padding: 4em 0 2em 0;
 		cursor: default;
-		margin-bottom: 2em;
 	}
 
 		#header:before {
@@ -2472,6 +2473,7 @@ input, select, textarea {
 
 	#main {
 		margin-bottom: 0;
+		color: #000;
 	}
 
 		#main section:first-of-type {
@@ -2660,6 +2662,7 @@ input, select, textarea {
 		/* Basic */
 
 			body, input, textarea, select {
+				color: #000;
 				font-size: 14pt;
 				line-height: 1.75em;
 			}
@@ -2688,6 +2691,7 @@ input, select, textarea {
 		/* Basic */
 
 			body, input, textarea, select {
+				color: #000;
 				font-size: 12pt;
 				line-height: 1.5em;
 			}
@@ -2735,6 +2739,7 @@ input, select, textarea {
 		/* Basic */
 
 			body, input, textarea, select {
+				color: #000;
 				font-size: 13pt;
 				line-height: 1.65em;
 			}
@@ -2782,6 +2787,7 @@ input, select, textarea {
 			}
 
 			body, input, textarea, select {
+				color: #000;
 				font-size: 12.5pt;
 				line-height: 1.5em;
 			}
@@ -2999,7 +3005,7 @@ input, select, textarea {
 					top: 0;
 					width: 100%;
 					height: 100%;
-					background: url("images/overlay.png");
+					/* background: url("images/overlay.png"); */
 					background-size: 128px 128px;
 				}
 
@@ -3198,3 +3204,38 @@ input, select, textarea {
 		list-style: none;
 		margin: 0 auto;
 	}
+	.main-form{
+       display: grid;
+       grid-template-columns: auto auto;  
+       grid-template-rows: auto auto auto auto;
+       grid-gap: .8em .5em;
+	   background:#ff6b16;
+       padding: 1.2em;
+	   border-radius: 10px;
+	   color: black;
+	   font-weight: bold
+	} 
+	.form-group label, input, select{
+       font-weight: bolder;
+	   color: black;
+	}
+	.form-group #id_title, #id_description, #id_contact, #id_categoria,  .errorlist{
+		width: 15em;
+		height: 1vh;
+		color: black;
+		height: 2.5em;
+		padding-left: 5px;
+	}
+	#id_oferece_ajuda{
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		border:3px solid #000;
+	}
+	.span-2 {
+		grid-column: span 2;
+		color: #000;
+	}
+.inline-form{
+	margin-top: 1em;
+}

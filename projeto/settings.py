@@ -147,3 +147,7 @@ MESSAGES_TAGS = {
     constants.SUCCESS:'message-success',
     constants.WARNING:'message.warnig',
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-13c15.up.railway.app'
+]
